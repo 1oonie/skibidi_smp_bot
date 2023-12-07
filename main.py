@@ -1,7 +1,7 @@
 import config
 import sys
 import os
-from typing import Sequence, Tuple
+from typing import Sequence, Tuple, Union
 
 import discord
 from discord import app_commands 
@@ -87,7 +87,7 @@ class RolePickerView(ui.View):
 
 async def pin_message_helper(
     message: discord.Message,
-    pinner: discord.Member | discord.User,
+    pinner: Union[discord.Member, discord.User],
     guild: discord.Guild,
 ) -> discord.WebhookMessage:
     webhook = discord.Webhook.from_url(PINBOARD, client=client)
